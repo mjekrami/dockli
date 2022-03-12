@@ -52,6 +52,7 @@ class ContainerModel(BaseModel):
     Ports = List[MappedPorts]
     Status: str
     NetworkSettings: ContainerNetworkSettinsgModel
+    Mounts: List[Any]
 
 
 test_container = {'Id': '5241a3f41efce48a0f9c4b8394f57b480403f37e7306246c67e6549bd4a1350c',
