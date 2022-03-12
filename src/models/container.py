@@ -25,7 +25,7 @@ class NetworkTypeModel(BaseModel):
 
 
 class ContainerNetworkModel(BaseModel):
-    NetworkType: NetworkTypeModel
+    bridge: NetworkTypeModel
 
 
 class ContainerLabelModel(BaseModel):
@@ -51,7 +51,7 @@ class ContainerModel(BaseModel):
     State: State
     Ports = List[MappedPorts]
     Status: str
-    # NetworkSettings: Optional[ContainerNetworkSettinsgModel]
+    NetworkSettings: ContainerNetworkSettinsgModel
 
 
 test_container = {'Id': '5241a3f41efce48a0f9c4b8394f57b480403f37e7306246c67e6549bd4a1350c',
@@ -69,4 +69,4 @@ test_container = {'Id': '5241a3f41efce48a0f9c4b8394f57b480403f37e7306246c67e6549
                   'Mounts': []}
 
 container = ContainerModel(**test_container)
-print(container.Ports)
+print(container.NetworkSettings.Networks)
